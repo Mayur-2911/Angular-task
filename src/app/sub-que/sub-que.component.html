@@ -1,0 +1,11 @@
+<div *ngFor="let question of res let i=index">
+
+  <app-quiz-que [question]="question" (answer)="handleAnswer(question, $event)"></app-quiz-que>
+
+
+  <div *ngIf="question.subQue && question.subQue.length">
+    <app-quiz-que *ngFor="let subQuestion of question.subQue" [question]="subQuestion"
+      [hidden]="!subQuestion.show"></app-quiz-que>
+
+  </div>
+</div>

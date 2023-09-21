@@ -1,0 +1,12 @@
+
+  <div >
+    <p class="que-block">{{  question.question }}</p>
+    <div class="col-md-8">
+    <select  class="sdropdown"   *ngIf="question.type === 'dropdown'" [(ngModel)]="selectedAnswer" (ngModelChange)="submitAnswer(selectedAnswer)">
+      <option *ngFor="let option of question.options" [value]="option">{{ option }}</option>
+    </select>
+  </div>
+    <input *ngIf="question.type === 'textinput'" [(ngModel)]="selectedAnswer" (ngModelChange)="submitAnswer(selectedAnswer)" [placeholder]="question.question">
+  </div>
+ 
+  
